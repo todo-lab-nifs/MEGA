@@ -1,0 +1,28 @@
+{
+  "title": "MEGA",
+  "upload_type": "software",
+  "description": "MEGA is a simulation code for plasma physics research. This code is distributed under the MIT License, and proper citation of the associated publication is required when used.",
+  "creators": [
+    {
+      "name": "Todo, Yasushi",
+      "affiliation": "National Institute for Fusion Science",
+      "orcid": "0000-0001-9323-8285"
+    }
+  ],
+  "keywords": [
+    "plasma physics",
+    "simulation",
+    "Alfvén eigenmodes",
+    "energetic particles",
+    "tokamak"
+  ],
+  "license": "MIT",
+  "related_identifiers": [
+    {
+      "identifier": "10.1088/1741-4326/ae059f",
+      "relation": "isSupplementTo",
+      "resource_type": "publication-article"
+    }
+  ],
+  "notes": "When using this code, please cite the following article: Todo, Y., 'Energetic particle driven Alfvén eigenmodes and associated energetic particle redistribution in a tokamak burning plasma', Nuclear Fusion, 2025. https://doi.org/10.1088/1741-4326/ae059f"
+}

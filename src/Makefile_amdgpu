@@ -1,0 +1,37 @@
+FC = mpif90
+
+FFLAGS = -O3 -cpp -DPRM4MPI -DPTCL1MPI -DAMDGPU -mcmodel=medium -DOPEN_MP -DSMP16 \
+         -fopenmp -fopenmp-targets=amdgcn-amd-amdhsa -fopenmp-target-fast --offload-arch=gfx942 -g
+#FFLAGS = -O3 -cpp -DPRM4MPI -DPTCL1MPI -DAMDGPU -mcmodel=medium -DOPEN_MP -DSMP16 -DKTI\
+#         -fopenmp -fopenmp-targets=amdgcn-amd-amdhsa -fopenmp-target-fast --offload-arch=gfx942 -g
+#FFLAGS = -O3 -cpp -DPRM4MPI -DPTCL1MPI -DAMDGPU -mcmodel=medium -DTIMER -DOPEN_MP -DSMP16 \
+#          -fopenmp -fopenmp-targets=amdgcn-amd-amdhsa -fopenmp-target-fast --offload-arch=gfx942 -g
+#FFLAGS += -DNOPARTICLE
+LDFLAGS = $(FFLAGS)
+
+ROCMDIR=/opt/rocm-6.3.3
+CC=hipcc
+CFLAGS=--offload-arch=gfx942 -I$(ROCMDIR)/include
+LIBS=-L$(ROCMDIR)/lib -lhiprand -lamdhip64
+
+OBJS = hiprandwrapper.o mega2025_open3.o
+BIN  = mega2025_open3amd-4mpi.go
+
+.SUFFIXES: .f90 .o .cu
+
+#  default : a.out
+all:$(BIN)
+
+$(BIN) : $(OBJS)
+	$(FC) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
+
+.f90.o:
+	$(FC) $(FFLAGS) -c $*.f90
+
+.cu.o:
+	$(CC) $(CFLAGS) -c $*.cu
+
+clean :
+	rm -f *.o *.mod $(BIN)
+#	rm -f $(OBJS) $(OBJS:.o=.mod) $(BIN)
+
