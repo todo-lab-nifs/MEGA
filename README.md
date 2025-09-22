@@ -31,7 +31,7 @@ See the [LICENSE](LICENSE) file for details.
 + % cd src
 + % module load intel/2025.1
 + % make
-+ Makefile is for flat MPI parallelization on Subsytem A. The Fortran compiler is the Intel® compiler (mpiifx). The preprocessor 
++ Makefile is for flat MPI parallelization on Subsystem A. The Fortran compiler is the Intel® compiler (mpiifx). The preprocessor 
 ‘-fpp –DPRM1024MPI –DPTCL1MPI -DXEON6900P’ means that PRM1024MPI, PTCL1MPI, and XEON6900P are designated in the code. PRM1024MPI means 1024 MPI processes for domain decomposition. Particle decomposition is also available with PTCL*MPI, but PTCL1MPI is usually used. If XEON6900P is designated, branches and modules optimized for Xeon® 6980P are used.
 + -fpp -DKTI: for simulations with kinetic thermal ions
 + -fpp -DEXP_EQ: for the equilibrium data constructed using experimental plasma profiles and EFT equilibrium
@@ -40,7 +40,7 @@ See the [LICENSE](LICENSE) file for details.
 + % cd src
 + % module load openmpi/5.0.7/rocm6.3.3_amdflang_afar
 + % make -f Makefile_amdgpu
-+ Makefile_amdgpu is for OpenMP and MPI hybrid parallelization on Subsytem B. The Fortran compiler is the AMD® compiler (amdflang). The preprocessor  
++ Makefile_amdgpu is for OpenMP and MPI hybrid parallelization on Subsystem B. The Fortran compiler is the AMD® compiler (amdflang). The preprocessor  
 ‘-cpp –DPRM4MPI–DPTCL1MPI -DAMDGPU -DOPEN_MP -DSMP16’ means that PRM4MPI, PTCL1MPI, AMDGPU, OPEN_MP, and SMP16 are designated in the code. PRM4MPI means 4 MPI processes for domain decomposition. Particle decomposition is also available with PTCL*MPI, but PTCL1MPI is usually used. MI300A is an APU consisting of GPU and CPU with a shared memory. If AMDGPU is designated, branches and modules optimized for MI300A are used. OPEN_MP and SMP16 means that the OpenMP branches are used on the CPU part of MI300A with 16 threads on each MPI process. One MPI process runs on one MI300A. 
 + -cpp -DKTI: for simulations with kinetic thermal ions
 + -cpp -DEXP_EQ: for the equilibrium data constructed using experimental plasma profiles and EFIT equilibrium
@@ -59,15 +59,15 @@ See the [LICENSE](LICENSE) file for details.
 + opn018 with kinetic thermal ions using Subsystem B
 
 2. equilibrium: equilibrium data for MEGA simulation (241216.eql062.lendian.d) which was used in the simulations presented in Figures 1 and 2 in 
-[Y. Todo et al., Plasma Phys. Control. Fusion 63 (2021) 075018]
+[Y. Todo et al., Plasma Physics and Controlled Fusion 63 (2021) 075018]
 
 3. opn015, opn017
-+ Example jobs on Subsystem A for 1024 MPI processes using 4 nodes (=8 CPUs). The job script is go001.sh. The job script should be modified to fit the user’s computer environment. The input parameters are given in “opn015_001.in”. This job focuses on an n=4 AE with an input parameter “PHIMODE=4.0d0” which defines the toroidal angle rage 0 &leq; &phi; < 2&pi; / PHIMODE. 
++ Example jobs on Subsystem A for 1024 MPI processes using 4 nodes (=8 CPUs). The job script is go001.sh. The job script should be modified to fit the user’s computer environment. The input parameters are given in “opn015_001.in”. This job focuses on an n=4 AE with an input parameter “PHIMODE=4.0d0” which defines the toroidal angle range 0 &leq; &phi; < 2&pi; / PHIMODE. 
 + The equilibrium data ‘equilibrium/241216.eql062.lendian.d’ is used in this run. 
 + In these runs, the source codes “mega2025_open3.f90” and “optimized_mod25xeon+amd.f90” are used. 
 
 4. opn016, opn018
-+ Example jobs on Subsystem B of for 4 MPI processes using 1 node (=4 APUs).
++ Example jobs on Subsystem B for 4 MPI processes using 1 node (=4 APUs).
 
 5. diagnostics
 + time evolution of each energy component is output to “opn*_001.energy_phys.txt”.
@@ -116,8 +116,8 @@ For questions or collaboration inquiries, please open an Issue or contact direct
 + MHD: 4th order finite difference + 4th Runge-Kutta for time integration
 + Energetic particles [and kinetic thermal ions]: delta-f PIC  (particle-in-cell)
 + References  
-[1]	Y. Todo et al., Plasma Phys. Control. Fusion 63, 075018 (2021).  
-[2]	Y. Todo et al., “Energetic Particle Driven Alfvén Eigenmodes and Associated Energetic Particle Redistribution in a Tokakmak Burning Plasma”, Nucl. Fusion (2025)  in press https://doi.org/10.1088/1741-4326/ae059f
+[1]	Y. Todo et al., Plasma Physics and Controlled Fusion 63 (2021) 075018.  
+[2]	Y. Todo et al., Nuclear Fusion 65 (2025) 102003. https://doi.org/10.1088/1741-4326/ae059f
 
 2. Computational language and parallelization  
 + Fortran90 + MPI (Message-Passing-Interface) + OpenMP
@@ -185,7 +185,7 @@ if it is succeeded, job_seq=2 for the next job, and so on.
 + temp_a: energetic particle temperature for type_a=0, defined in the code
 
 6. Subroutines called from the main program
-+ start_mpi: ininialization of MPI processes with domain decompositon 
++ start_mpi: initialization of MPI processes with domain decomposition 
 + wall_clock: measure elapse time with mpi_wtime
 + equi_solution: read the equilibrium data 
 + sgrid: construct simulation grid points
@@ -198,7 +198,7 @@ if it is succeeded, job_seq=2 for the next job, and so on.
 + injection: beam injection for flag_BDP=.TRUE.
 + scattering: pitch-angle scattering and energy diffusion of EPs for 
 flag_BDP=.TRUE
-+ perturb_fluid(_random): give initial pertrubation to the MHD fluid
++ perturb_fluid(_random): give initial perturbation to the MHD fluid
 + read_data: read the data of the previous job for succession
 + density_particle: calculate energetic-particle pressures from the PIC particles
 + e_field: give electric field from the Ohm's law
@@ -209,7 +209,7 @@ flag_BDP=.TRUE
 + write_data: write all the data necessary for job succession
 + order_particle: order particles for fast computation
 + satellite: finite Larmor radius effects for flag_FLR=.TRUE.
-+ push_particle: drift kinetc equation of motion of energetic particles
++ push_particle: drift kinetic equation of motion of energetic particles
 + bcptcl: boundary condition of energetic particles
 + mhd: MHD equations and time integration
 + com_particle: PIC particle data is transferred to the next MPI domain
