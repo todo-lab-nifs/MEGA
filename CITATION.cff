@@ -8,14 +8,19 @@ authors:
     orcid: "https://orcid.org/0000-0001-9323-8285"
 year: 2025
 url: "https://github.com/todo-lab-nifs/MEGA"
+doi: 10.5281/zenodo.17170100
 license: MIT
+version: "1.0.0"
+date-released: 2025-09-18
 preferred-citation:
   type: article
   authors:
     - family-names: Todo
       given-names: Yasushi
     - name: et al.
-  year: 2025
   title: "Energetic particle driven Alfvén eigenmodes and associated energetic particle redistribution in a tokamak burning plasma"
   journal: "Nuclear Fusion"
+  year: 2025
+  volume: 65
+  pages: "102003"
   doi: "10.1088/1741-4326/ae059f"
