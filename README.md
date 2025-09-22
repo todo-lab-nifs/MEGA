@@ -8,7 +8,7 @@ MEGA is a simulation code for magnetohydrodynamic (MHD) phenomena in magneticall
 
 If you use this code, please cite the following work:
 
-Todo, Yasushi. *Energetic particle driven Alfvén eigenmodes and associated energetic particle redistribution in a tokamak burning plasma.* Nuclear Fusion 65 (2025) 102003.  
+Todo, Yasushi et al. *Energetic particle driven Alfvén eigenmodes and associated energetic particle redistribution in a tokamak burning plasma.* Nuclear Fusion 65 (2025) 102003.  
 https://doi.org/10.1088/1741-4326/ae059f  
 
 Additionally, please cite the software itself:
