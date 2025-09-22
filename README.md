@@ -1,20 +1,20 @@
 # MEGA
 
-MEGA is a simulation code for plasma physics research, focusing on energetic particle driven Alfvén eigenmodes and energetic particle transport in burning plasmas.
+MEGA is a simulation code for magnetohydrodynamic (MHD) phenomena in magnetically confined plasmas, focusing on energetic particle driven instabilities, energetic particle transport, and kinetic effects of thermal ions and energetic particles.
 
 ---
 
 ## Citation
 
-When using this code in academic work, please cite the following publication:
+If you use this code, please cite the following work:
 
-> Todo, Y., *Energetic particle driven Alfvén eigenmodes and associated energetic particle redistribution in a tokamak burning plasma*, Nuclear Fusion, 2025.  
-> https://doi.org/10.1088/1741-4326/ae059f
+Todo, Yasushi. *Energetic particle driven Alfvén eigenmodes and associated energetic particle redistribution in a tokamak burning plasma.* Nuclear Fusion 65 (2025) 102003.  
+https://doi.org/10.1088/1741-4326/ae059f  
 
-You may also cite the software itself using its Zenodo DOI:
+Additionally, please cite the software itself:
 
-> Todo, Y., *MEGA*, Zenodo (2025).  
-> DOI: https://doi.org/10.5281/zenodo.XXXXXXX
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17170101.svg)](https://doi.org/10.5281/zenodo.17170101)
+
 
 ---
 
