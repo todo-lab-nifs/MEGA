@@ -7,8 +7,8 @@ FFLAGS = -O3 -qmkl -xCORE-AVX512 -Bdynamic -fpic -mcmodel=medium -fpp -DMKL -DPR
 LDFLAGS = -O3 -qmkl
 
 LIBS = 
-OBJS = mega2025_open3.o
-BIN  = mega2025_open3_kti-1024mpi.go
+OBJS = mega2025_open4.o
+BIN  = mega2025_open4_kti-1024mpi.go
 
 .SUFFIXES: .f90 .o
 

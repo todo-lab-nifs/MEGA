@@ -1,9 +1,0 @@
-  &PARAM0  JOB_SEQ=1, &END
-  &PARAM1  KSTEP=0,KSMAX=250000, ETLIM=3.5D4, &END
-  &PARAM2  KWCHK=1000,KWOUT=50000,KSNAPSH=5000,KMOVIE=1000, &END
-  &PARAM3  DT=2.0D-1, PHIMODE=4.0d0, &END
-  &PARAM4  NU0=5.0d-7, ETA0=5.0d-7, NU_N0=5.0d-7, CHI0=5.0d-7, &END
-  &PARAM5  flag_FLR=.FALSE., flag_HM=.FALSE., flag_BDP=.FALSE., &END
-  &PARAM6  type_a=1, clambda0=0.30d0, dclambda=0.30d0, &END
-  &PARAM7  hpower=9.3765885d0, sd_accl=1.0d0, tmax0=1.0d2, t_classic=1.0d-5, t_mhd=1.99999d0, &END
-  &PARAM8  beta_a0=1.5d-2, scale_psi=4.0d-1, valpha=1.2d0, temp_a=2.0d-2, &END

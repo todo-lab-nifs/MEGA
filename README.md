@@ -13,7 +13,7 @@ https://doi.org/10.1088/1741-4326/ae059f
 
 Additionally, please cite the software itself:
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17170101.svg)](https://doi.org/10.5281/zenodo.17170101)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17680048.svg)](https://doi.org/10.5281/zenodo.17680048)
 
 
 ---
@@ -27,7 +27,7 @@ See the [LICENSE](LICENSE) file for details.
 
 ## Compilation
 
-1. Compile mega2025_open3.f90 using Intel® compiler for Subsystem A of Plasma Simulator (Intel® Xeon® 6980P)
+1. Compile mega2025_open4.f90 using Intel® compiler for Subsystem A of Plasma Simulator (Intel® Xeon® 6980P)
 + % cd src
 + % module load intel/2025.1
 + % make
@@ -36,7 +36,7 @@ See the [LICENSE](LICENSE) file for details.
 + -fpp -DKTI: for simulations with kinetic thermal ions
 + -fpp -DEXP_EQ: for the equilibrium data constructed using experimental plasma profiles and EFT equilibrium
 
-2. Compile mega2025_open3.f90 using AMD® compiler for Subsystem B of Plasma Simulator (AMD® MI300A)
+2. Compile mega2025_open4.f90 using AMD® compiler for Subsystem B of Plasma Simulator (AMD® MI300A)
 + % cd src
 + % module load openmpi/5.0.7/rocm6.3.3_amdflang_afar
 + % make -f Makefile_amdgpu
@@ -55,19 +55,19 @@ See the [LICENSE](LICENSE) file for details.
 1. examples: example jobs for an energetic particle driven Alfvén eigenmode (AE) on Subsystems A  (Intel® Xeon® 6980P) and B (AMD® Instinct MI300A) on Plasma Simulator
 + opn015 without kinetic thermal ions using Subsystem A 
 + opn016 without kinetic thermal ions using Subsystem B
-+ opn017 with kinetic thermal ions using Subsystem A
-+ opn018 with kinetic thermal ions using Subsystem B
++ opn020 with kinetic thermal ions using Subsystem A
++ opn021 with kinetic thermal ions using Subsystem B
 
 2. equilibrium: equilibrium data for MEGA simulation (241216.eql062.lendian.d) which was used in the simulations presented in Figures 1 and 2 in 
 [Y. Todo et al., Plasma Physics and Controlled Fusion 63 (2021) 075018]
 
-3. opn015, opn017
+3. opn015, opn020
 + Example jobs on Subsystem A for 1024 MPI processes using 4 nodes (=8 CPUs). The job script is go001.sh. The job script should be modified to fit the user’s computer environment. The input parameters are given in “opn015_001.in”. This job focuses on an n=4 AE with an input parameter “PHIMODE=4.0d0” which defines the toroidal angle range 0 &leq; &phi; < 2&pi; / PHIMODE. 
 + The equilibrium data ‘equilibrium/241216.eql062.lendian.d’ is used in this run. 
-+ In these runs, the source codes “mega2025_open3.f90” and “optimized_mod25xeon+amd.f90” are used. 
++ In these runs, the source codes “mega2025_open4.f90” and “optimized_mod25xeon+amd.f90” are used. 
 
-4. opn016, opn018
-+ Example jobs on Subsystem B for 4 MPI processes using 1 node (=4 APUs).
+4. opn016, opn021
++ Example jobs on Subsystem B for 4 MPI processes using 1 node (=4 APUs) or for 8 MPI processes using 2 nodes (=8 APUs).
 
 5. diagnostics
 + time evolution of each energy component is output to “opn*_001.energy_phys.txt”.
