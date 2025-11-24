@@ -13,7 +13,7 @@ https://doi.org/10.1088/1741-4326/ae059f
 
 Additionally, please cite the software itself:
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17680048.svg)](https://doi.org/10.5281/zenodo.17680048)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17170100.svg)](https://doi.org/10.5281/zenodo.17170100)
 
 
 ---
