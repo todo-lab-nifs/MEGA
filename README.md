@@ -1,6 +1,18 @@
 # MEGA
 
-MEGA is a simulation code for magnetohydrodynamic (MHD) phenomena in magnetically confined plasmas, focusing on energetic particle driven instabilities, energetic particle transport, and kinetic effects of thermal ions and energetic particles.
+MEGA is a kinetic–magnetohydrodynamic (kinetic–MHD) hybrid simulation code for studies of energetic-particle-driven instabilities in magnetically confined fusion plasmas. It has been developed primarily for simulations of Alfvén eigenmodes, energetic particle transport, and nonlinear wave–particle interactions in tokamak and stellarator plasmas.
+
+---
+
+## Features
+
++ Kinetic–MHD hybrid model
++ Simulations of energetic-particle-driven Alfvén eigenmodes
++ Nonlinear energetic particle transport
++ Tokamak and stellarator configurations
++ MPI parallelization
++ OpenMP target offloading for GPU acceleration
++ Optimized execution on AMD Instinct MI300A GPUs (Version 1.1.0 and later)
 
 ---
 
@@ -78,7 +90,7 @@ output data: opn*_001_kstep=0100000_n=+04-vrad.txt
 figure are contained in directories opn015 and opn017
 + time evolution of the radial MHD velocity: evolve.f90  
 input data: opn*_001.harmonics  
-output data: opn*_evol_m=06_n=+04_l=097-vrad.txt  
+output data: opn*_evol_m=05_n=+04_l=087-vrad.txt  
 
 ---
 
