@@ -27,24 +27,23 @@ See the [LICENSE](LICENSE) file for details.
 
 ## Compilation
 
-1. Compile mega2025_open4.f90 using Intel® compiler for Subsystem A of Plasma Simulator (Intel® Xeon® 6980P)
+1. Compile mega2026_open6.f90 using Intel® compiler for Subsystem A of Plasma Simulator (Intel® Xeon® 6980P)
 + % cd src
-+ % module load intel/2025.1
++ % module load intel
 + % make
 + Makefile is for flat MPI parallelization on Subsystem A. The Fortran compiler is the Intel® compiler (mpiifx). The preprocessor 
 ‘-fpp –DPRM1024MPI –DPTCL1MPI -DXEON6900P’ means that PRM1024MPI, PTCL1MPI, and XEON6900P are designated in the code. PRM1024MPI means 1024 MPI processes for domain decomposition. Particle decomposition is also available with PTCL*MPI, but PTCL1MPI is usually used. If XEON6900P is designated, branches and modules optimized for Xeon® 6980P are used.
 + -fpp -DKTI: for simulations with kinetic thermal ions
 + -fpp -DEXP_EQ: for the equilibrium data constructed using experimental plasma profiles and EFT equilibrium
 
-2. Compile mega2025_open4.f90 using AMD® compiler for Subsystem B of Plasma Simulator (AMD® MI300A)
+2. Compile mega2026_open6.f90 using AMD® compiler for Subsystem B of Plasma Simulator (AMD® MI300A)
 + % cd src
 + % module load openmpi/5.0.7/rocm6.3.3_amdflang_afar
 + % make -f Makefile_amdgpu
 + Makefile_amdgpu is for OpenMP and MPI hybrid parallelization on Subsystem B. The Fortran compiler is the AMD® compiler (amdflang). The preprocessor  
 ‘-cpp –DPRM4MPI–DPTCL1MPI -DAMDGPU -DOPEN_MP -DSMP16’ means that PRM4MPI, PTCL1MPI, AMDGPU, OPEN_MP, and SMP16 are designated in the code. PRM4MPI means 4 MPI processes for domain decomposition. Particle decomposition is also available with PTCL*MPI, but PTCL1MPI is usually used. MI300A is an APU consisting of GPU and CPU with a shared memory. If AMDGPU is designated, branches and modules optimized for MI300A are used. OPEN_MP and SMP16 means that the OpenMP branches are used on the CPU part of MI300A with 16 threads on each MPI process. One MPI process runs on one MI300A. 
 + -cpp -DKTI: for simulations with kinetic thermal ions
-+ -cpp -DEXP_EQ: for the equilibrium data constructed using experimental plasma profiles and EFIT equilibrium
-+ The built-in mathematical function ‘erfc’ is not available with the AMD® compiler. One may find the function on ‘https://www.netlib.org/specfun/erf’. In addition, a pseudo random number generator based on hip (hipRAND) is used using a wrapper written in C language (hiprandwrapper.cu). 
++ -cpp -DEXP_EQ: for the equilibrium data constructed using experimental plasma profiles and EFIT equilibrium 
 
 3. In addition to Plasma Simulator, optimized modules for the supercomputer Fugaku and NEC SX-Aurora TSUBASA, which are designated by the preprocessors with -DFUGAKU and -DAURORA, respectively, are available. The default module is ‘fx100’ which is optimized for Fujitsu Supercomputer PRIMEHPC FX100. 
 
@@ -53,21 +52,21 @@ See the [LICENSE](LICENSE) file for details.
 ## Usage
 
 1. examples: example jobs for an energetic particle driven Alfvén eigenmode (AE) on Subsystems A  (Intel® Xeon® 6980P) and B (AMD® Instinct MI300A) on Plasma Simulator
-+ opn015 without kinetic thermal ions using Subsystem A 
-+ opn016 without kinetic thermal ions using Subsystem B
-+ opn020 with kinetic thermal ions using Subsystem A
-+ opn021 with kinetic thermal ions using Subsystem B
++ opn050 without kinetic thermal ions using Subsystem A 
++ opn051 without kinetic thermal ions using Subsystem B
++ opn052 with kinetic thermal ions using Subsystem A
++ opn053 with kinetic thermal ions using Subsystem B
 
 2. equilibrium: equilibrium data for MEGA simulation (241216.eql062.lendian.d) which was used in the simulations presented in Figures 1 and 2 in 
 [Y. Todo et al., Plasma Physics and Controlled Fusion 63 (2021) 075018]
 
-3. opn015, opn020
-+ Example jobs on Subsystem A for 1024 MPI processes using 4 nodes (=8 CPUs). The job script is go001.sh. The job script should be modified to fit the user’s computer environment. The input parameters are given in “opn015_001.in”. This job focuses on an n=4 AE with an input parameter “PHIMODE=4.0d0” which defines the toroidal angle range 0 &leq; &phi; < 2&pi; / PHIMODE. 
+3. opn050, opn052
++ Example jobs on Subsystem A for 1024 MPI processes using 4 nodes (=8 CPUs). The job script is go001.sh. The job script should be modified to fit the user’s computer environment. The input parameters are given in “opn050_001.in”. This job focuses on an n=4 AE with an input parameter “PHIMODE=4.0d0” which defines the toroidal angle range 0 &leq; &phi; < 2&pi; / PHIMODE. 
 + The equilibrium data ‘equilibrium/241216.eql062.lendian.d’ is used in this run. 
-+ In these runs, the source codes “mega2025_open4.f90” and “optimized_mod25xeon+amd.f90” are used. 
++ In these runs, the source codes “mega2026_open6.f90” and “optimized_mod26JUNv4.f90” are used. 
 
-4. opn016, opn021
-+ Example jobs on Subsystem B for 4 MPI processes using 1 node (=4 APUs) or for 8 MPI processes using 2 nodes (=8 APUs).
+4. opn051, opn053
++ Example jobs on Subsystem B for 4 MPI processes using 1 node (=4 APUs).
 
 5. diagnostics
 + time evolution of each energy component is output to “opn*_001.energy_phys.txt”.
@@ -80,7 +79,6 @@ figure are contained in directories opn015 and opn017
 + time evolution of the radial MHD velocity: evolve.f90  
 input data: opn*_001.harmonics  
 output data: opn*_evol_m=06_n=+04_l=097-vrad.txt  
-figures are contained in directories opn015 and opn017
 
 ---
 

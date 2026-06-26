@@ -1,23 +1,22 @@
 cff-version: 1.2.0
 title: "MEGA"
-message: "If you use this code, please cite the following publication."
+message: "If you use MEGA in your research, please cite the following publication."
 authors:
   - family-names: Todo
     given-names: Yasushi
     affiliation: "National Institute for Fusion Science"
     orcid: "https://orcid.org/0000-0001-9323-8285"
-year: 2025
+year: 2026
 url: "https://github.com/todo-lab-nifs/MEGA"
 doi: 10.5281/zenodo.17170100
 license: MIT
-version: "1.0.1"
-date-released: 2025-11-22
+version: "1.1.0"
+date-released: 2026-06-26
 preferred-citation:
   type: article
   authors:
     - family-names: Todo
       given-names: Yasushi
-    - name: et al.
   title: "Energetic particle driven Alfvén eigenmodes and associated energetic particle redistribution in a tokamak burning plasma"
   journal: "Nuclear Fusion"
   year: 2025

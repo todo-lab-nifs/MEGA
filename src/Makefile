@@ -2,13 +2,16 @@ FC = mpiifx
 
 # FFLAGS = -O3 -qmkl -xCORE-AVX512 -Bdynamic -fpic -mcmodel=medium -qopenmp -fpp -DMKL -DPRM2048MPI -DPTCL1MPI -DSMP4 -DOPEN_MP
 # LDFLAGS = -O3 -qmkl -qopenmp
-FFLAGS = -O3 -qmkl -xCORE-AVX512 -Bdynamic -fpic -mcmodel=medium -fpp -DMKL -DPRM1024MPI -DPTCL1MPI -DXEON6900P -DKTI
+# FFLAGS = -O3 -qmkl -xCORE-AVX512 -Bdynamic -fpic -mcmodel=medium -fpp -DMKL -DPRM1024MPI -DPTCL1MPI -DXEON6900P -DKTI
+
+FFLAGS = -O3 -qmkl -xgraniterapids -Bdynamic -fpic -mcmodel=medium -fpp -DMKL -DPRM1024MPI -DPTCL1MPI -DXEON6900P -DKTI
+# FFLAGS = -O3 -qmkl -xgraniterapids -Bdynamic -fpic -mcmodel=medium -fpp -DMKL -DPRM1024MPI -DPTCL1MPI -DXEON6900P
 
 LDFLAGS = -O3 -qmkl
 
 LIBS = 
-OBJS = mega2025_open4.o
-BIN  = mega2025_open4_kti-1024mpi.go
+OBJS = mega2026_open6.o
+BIN  = mega2026_open6_kti-1024mpi.go
 
 .SUFFIXES: .f90 .o
 
